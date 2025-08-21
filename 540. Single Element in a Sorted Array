@@ -1,0 +1,17 @@
+class Solution(object):
+    def singleNonDuplicate(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        i=0
+        n=len(nums)-1
+        while i<=n:
+            if nums.count(nums[i])==1:
+                return nums[i]
+            elif nums.count(nums[n])==1:
+                return nums[n]
+            else:
+                i+=2
+                n-=2
+            
