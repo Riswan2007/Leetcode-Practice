@@ -1,0 +1,21 @@
+class Solution(object):
+    def longestPalindrome(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        accepted = []
+        count = 0
+        check = True
+        s = list(s)
+        for i in s[:]:
+            if s.count(i) >= 2 and i not in accepted:
+                accepted.append(i)
+                pairs = s.count(i) // 2
+                count += pairs * 2
+                for _ in range(pairs * 2):
+                    s.remove(i)
+            if s.count(i) == 1 and check:
+                count += 1
+                check = False
+        return count
